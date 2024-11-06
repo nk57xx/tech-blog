@@ -220,7 +220,7 @@ theme = "LoveIt"
   [params.social]
     Bitbucket = ""
     GitHub = ""
-    Linkedin = "https://www.linkedin.com/in/norbert-kerner/"
+    Linkedin = "norbert-kerner"
     Twitter = ""
     Gitlab = ""
     Email = ""
