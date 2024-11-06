@@ -68,7 +68,7 @@ theme = "LoveIt"
         pre = "<i class='fab fa-github fa-fw'></i>"
         post = ""
         name = ""
-        url = "https://yourgithuburl"
+        url = "https://github.com/nk57xx/"
         title = "GitHub"
         weight = 5
 
