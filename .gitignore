@@ -29,3 +29,6 @@ ehthumbs.db
 # Other
 *.bak
 *.old
+
+# Terraform
+terraform/.terraform
