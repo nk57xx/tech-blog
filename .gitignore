@@ -32,3 +32,4 @@ ehthumbs.db
 
 # Terraform
 terraform/.terraform
+terraform/terraform.tfstate
