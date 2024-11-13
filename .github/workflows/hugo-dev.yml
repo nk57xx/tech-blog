@@ -59,7 +59,7 @@ jobs:
       - name: Terraform Output
         id: tf_outputs
         run: | 
-        echo "S3_BUCKET=$(terraform output -raw s3_bucket) | tr -d '""')" >> "$GITHUB_PUTPUT"
+        echo "S3_BUCKET=$(terraform output -raw s3_bucket) | tr -d '""')" >> "$GITHUB_OUTPUT"
         echo "CF_DISTRIBUTION_ID=$(terraform output -raw cf_distribution_id) | tr -d '""')" >> "$GITHUB_OUTPUT"
 
   deploy-hugo:
@@ -68,7 +68,7 @@ jobs:
       HUGO_VERSION: 0.138.0
       CF_DISTRIBUTION_ID: ${{ needs.create-infrastructure.outputs.cf_distribution_id }}
       S3_BUCKET: ${{ needs.create-infrastructure.outputs.s3_bucket }}
-      
+
     steps:
 
       #Step 1: Checkout the Code from the Repository
