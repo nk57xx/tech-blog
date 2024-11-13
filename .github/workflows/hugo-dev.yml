@@ -63,6 +63,7 @@ jobs:
           echo "CF_DISTRIBUTION_ID=$(terraform output -raw cf_distribution_id) | tr -d '""')" >> "$GITHUB_OUTPUT"
 
   deploy-hugo:
+  needs: create-infrastructure
     runs-on: ubuntu-22.04
     env:
       HUGO_VERSION: 0.138.0
