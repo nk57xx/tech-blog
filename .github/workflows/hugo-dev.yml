@@ -1,4 +1,4 @@
-name: TF - Build and Deploy Hugo Site from GitHub to AWS S3 
+name: Create with TF and Deploy Hugo Site from GitHub to AWS S3 and CloudFront
 
 on:
 #  push:
