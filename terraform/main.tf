@@ -72,7 +72,8 @@ data "aws_iam_policy_document" "static-website" {
 
 resource "aws_cloudfront_origin_access_control" "static-website" {
   name                              = aws_s3_bucket.static-website.id
-  origin_access_control_origin_type = "OAC for S3 bucket ${aws_s3_bucket.static-website.id}"
+  description                       = "OAC for S3 bucket ${aws_s3_bucket.static-website.id}"
+  origin_access_control_origin_type = "s3"
   signing_behavior                  = "always"
   signing_protocol                  = "sigv4"
 }
