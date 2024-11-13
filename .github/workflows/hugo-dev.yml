@@ -41,7 +41,7 @@ jobs:
         with:
           audience: sts.amazonaws.com
           role-to-assume: ${{ secrets.AWS_IAM_ROLE }}
-          aws-region: ${{ secrets.AWS_REGION å}}
+          aws-region: ${{ secrets.AWS_REGION }}
 
       #Step 4: Terraform Init
       - name: Terraform Init
