@@ -13,8 +13,7 @@ terraform {
 
 # Variables
 variable "bucket_name" {
-  type    = string
-  default = "Norberts tech-blog"
+  type = string
 }
 
 
