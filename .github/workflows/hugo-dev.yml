@@ -59,8 +59,8 @@ jobs:
       - name: Terraform Output
         id: tf_outputs
         run: | 
-          echo "S3_BUCKET=$(terraform output -raw s3_bucket) | tr -d '""')" >> "$GITHUB_OUTPUT"
-          echo "CF_DISTRIBUTION_ID=$(terraform output -raw cloudfront_id) | tr -d '""')" >> "$GITHUB_OUTPUT"
+          echo "S3_BUCKET=$(terraform output s3_bucket) | tr -d '""')" >> "$GITHUB_OUTPUT"
+          echo "CF_DISTRIBUTION_ID=$(terraform output cloudfront_id) | tr -d '""')" >> "$GITHUB_OUTPUT"
 
   build_and_deploy_job:
     needs: create-infrastructure
