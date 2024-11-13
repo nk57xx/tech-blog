@@ -1,10 +1,11 @@
 name: Create with TF and Deploy Hugo Site from GitHub to AWS S3 and CloudFront
 
 on:
+  workflow_dispatch:
 #  push:
 #    branches:
 #      - feature/terraform
-  workflow_dispatch:
+
 
 permissions:
   contents: read
