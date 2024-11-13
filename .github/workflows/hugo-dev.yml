@@ -1,11 +1,10 @@
 name: Create with TF and Deploy to AWS S3 and CloudFront
 
 on:
-  workflow_dispatch:
   push:
     branches:
-      - feature/terraform1
-
+      - feature/terraform
+  workflow_dispatch:
 
 permissions:
   contents: read
