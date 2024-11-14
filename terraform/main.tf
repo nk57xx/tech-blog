@@ -19,7 +19,7 @@ variable "bucket_name" {
 
 variable "blog_domain" {
   type    = string
-  default = "blog.norbert-kerner.com"
+  default = "norbert.cloudtalents.io"
 }
 
 
@@ -96,7 +96,7 @@ resource "aws_cloudfront_distribution" "static-website" {
   enabled             = true
   default_root_object = "index.html"
 
-  aliases = ["blog.norbert-kerner.com"]
+  aliases = ["norbert.cloudtalents.io"]
 
   default_cache_behavior {
     allowed_methods = [
@@ -136,7 +136,7 @@ resource "aws_cloudfront_distribution" "static-website" {
   }
 
   viewer_certificate {
-    acm_certificate_arn      = aws_acm_certificate.my_certificate.id
+    acm_certificate_arn      = aws_acm_certificate.my_certificate.arn
     ssl_support_method       = "sni-only"
     minimum_protocol_version = "TLSv1.2_2021"
     #cloudfront_default_certificate = true
