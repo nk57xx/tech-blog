@@ -17,6 +17,10 @@ variable "bucket_name" {
   default = "norberts.tech-blog.cloudtalents"
 }
 
+variable "blog_domain" {
+  type    = string
+  default = "blog.norbert-kerner.com"
+}
 
 
 # Provider
@@ -92,6 +96,8 @@ resource "aws_cloudfront_distribution" "static-website" {
   enabled             = true
   default_root_object = "index.html"
 
+  aliases = ["$(var.blog_domain)"]
+
   default_cache_behavior {
     allowed_methods = [
       "GET",
@@ -130,7 +136,10 @@ resource "aws_cloudfront_distribution" "static-website" {
   }
 
   viewer_certificate {
-    cloudfront_default_certificate = true
+    acm_certificate_arn      = aws_acm_certificate.my_certificate.arn
+    ssl_support_method       = "sni-only"
+    minimum_protocol_version = "TLSv1.2_2021"
+    #cloudfront_default_certificate = true
   }
 }
 
@@ -140,6 +149,18 @@ resource "aws_cloudfront_function" "index" {
   comment = "Add index.html to request URLs without a file name"
   publish = true
   code    = file("function.js")
+}
+
+# ACM
+
+resource "aws_acm_certificate" "my_certificate" {
+  provider          = aws.us-east-1
+  domain_name       = var.blog_domain
+  validation_method = "DNS"
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 # Outputs
