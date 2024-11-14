@@ -132,9 +132,14 @@ resource "aws_cloudfront_distribution" "static-website" {
 resource "aws_cloudfront_function" "index" {
   name    = "index"
   runtime = "cloudfront-js-2.0"
-  comment = "Add index.html to links"
+  comment = "Add index.html to request URLs without a file name"
   publish = true
   code    = file("function.js")
+}
+
+function_association {
+  event_type   = "viewer-request"
+  function_arn = aws_cloudfront_function.URI_Add.arn
 }
 
 # Outputs
