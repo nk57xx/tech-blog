@@ -134,7 +134,7 @@ resource "aws_cloudfront_function" "index" {
   runtime = "cloudfront-js-2.0"
   comment = "Add index.html to links"
   publish = true
-  code    = file("code/functions.js")
+  code    = file("function.js")
 }
 
 # Outputs
