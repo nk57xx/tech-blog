@@ -129,6 +129,14 @@ resource "aws_cloudfront_distribution" "static-website" {
   }
 }
 
+resource "aws_cloudfront_function" "index" {
+  name    = "index"
+  runtime = "cloudfront-js-2.0"
+  comment = "Add index.html to links"
+  publish = true
+  code    = file("code/functions.js")
+}
+
 # Outputs
 
 output "s3_bucket" {
