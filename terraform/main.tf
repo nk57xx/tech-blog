@@ -96,7 +96,7 @@ resource "aws_cloudfront_distribution" "static-website" {
   enabled             = true
   default_root_object = "index.html"
 
-  aliases = ["$(var.blog_domain)"]
+  aliases = ["blog.norbert-kerner.com"]
 
   default_cache_behavior {
     allowed_methods = [
