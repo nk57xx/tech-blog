@@ -3,7 +3,7 @@ baseURL = "https://yourdomain.com"
 defaultContentLanguage = "en"
 # language code
 languageCode = "en"
-title = "Norberts Blog"
+title = "Norbert CloutTalent Blog"
 
 # Change the default theme to be use when building the site with Hugo
 theme = "LoveIt"
@@ -97,7 +97,7 @@ theme = "LoveIt"
   #  App icon config
   [params.app]
     # optional site title override for the app when added to an iOS home screen or Android launcher
-    title = "Norberts Blog"
+    title = "Norbert CloudTalenet Blog"
     # whether to omit favicon resource links
     noFavicon = false
     # modern SVG favicon to use in place of older style .png and .ico files
@@ -142,7 +142,7 @@ theme = "LoveIt"
       # URL of the LOGO
       logo = ""
       # title name
-      name = "Norberts Blog"
+      name = "Norbert CloudTalent Blog"
       # you can add extra information before the name (HTML format is supported), such as icons
       pre = ""
       # you can add extra information after the name (HTML format is supported), such as icons
@@ -198,7 +198,7 @@ theme = "LoveIt"
       # URL of avatar shown in home page (LINK_TO_YOUR_PHOTO_BELOW)
       avatarURL = "https://avatars.githubusercontent.com/u/182090105?v=4"
       #  title shown in home page (HTML format is supported)
-      title = "Norberts Blog"
+      title = "Norbert CloudTalent Blog"
       # subtitle shown in home page
       subtitle = "My AWS DevOps Engineering Journey"
       # whether to use typeit animation for subtitle

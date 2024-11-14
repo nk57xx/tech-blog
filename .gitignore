@@ -29,3 +29,7 @@ ehthumbs.db
 # Other
 *.bak
 *.old
+
+# Terraform
+terraform/.terraform
+terraform/terraform.tfstate
