@@ -141,27 +141,27 @@ resource "aws_cloudfront_distribution" "static-website" {
     minimum_protocol_version = "TLSv1.2_2021"
     #cloudfront_default_certificate = true
   }
-}
 
-custom_error_response {
-  error_caching_min_ttl = 86400
-  error_code            = 404
-  response_code         = 404
-  response_page_path    = "404.html"
-}
+  custom_error_response {
+    error_caching_min_ttl = 86400
+    error_code            = 404
+    response_code         = 404
+    response_page_path    = "404.html"
+  }
 
-custom "custom_error_response" {
-  error_caching_min_ttl = 86400
-  error_code            = 403
-  response_code         = 403
-  response_page_path    = "404.html"
-}
+  custom_error_response {
+    error_caching_min_ttl = 86400
+    error_code            = 403
+    response_code         = 403
+    response_page_path    = "404.html"
+  }
 
-custom_error_response {
-  error_caching_min_ttl = 86400
-  error_code            = 500
-  response_code         = 500
-  response_page_path    = "404.html"
+  custom_error_response {
+    error_caching_min_ttl = 86400
+    error_code            = 500
+    response_code         = 500
+    response_page_path    = "404.html"
+  }
 }
 
 resource "aws_cloudfront_function" "index" {
