@@ -184,6 +184,48 @@ resource "aws_acm_certificate" "my_certificate" {
   }
 }
 
+# IAM
+
+# Get current AWS Account ID
+data "aws_caller_identity" "current" {}
+
+# Import GitHub Action Role
+data "aws_iam_role" "github_actions" {
+  name = "GitHubActions-tech-blog"
+}
+
+# Update existing Policy for GitHubActions-tech-blog Role
+resource "aws_iam_role_policy" "github_actions" {
+  name = "GitHubActions-tech-blog"
+  role = data.aws_iam_role.github_actions.name
+
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        "Sid" : "GitHubActions-Policy",
+        "Effect" : "Allow",
+        "Action" : [
+          "s3:PutObject",
+          "s3:GetObject",
+          "s3:ListBucket",
+          "s3:DeleteObject"
+        ],
+        "Resource" : [
+          "${aws_s3_bucket.static-website.arn}/*",
+          "${aws_s3_bucket.static-website.arn}"
+        ]
+      },
+      {
+        "Sid" : "CloudFront-InvalidateRequests",
+        "Effect" : "Allow",
+        "Action" : "cloudfront:CreateInvalidation",
+        "Resource" : "arn:aws:cloudfront::${data.aws_caller_identity.current.account_id}:distribution/${aws_cloudfront_distribution.static-website.id}"
+      }
+    ]
+  })
+}
+
 # Outputs
 
 output "s3_bucket" {
