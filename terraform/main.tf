@@ -203,7 +203,7 @@ resource "aws_iam_role_policy" "github_actions" {
     Version = "2012-10-17",
     Statement = [
       {
-        "Sid" : "GitHubActions-Policy",
+        "Sid" : "GitHubActionsPolicy",
         "Effect" : "Allow",
         "Action" : [
           "s3:PutObject",
@@ -217,7 +217,7 @@ resource "aws_iam_role_policy" "github_actions" {
         ]
       },
       {
-        "Sid" : "CloudFront-InvalidateRequests",
+        "Sid" : "CloudFrontInvalidateRequests",
         "Effect" : "Allow",
         "Action" : "cloudfront:CreateInvalidation",
         "Resource" : "arn:aws:cloudfront::${data.aws_caller_identity.current.account_id}:distribution/${aws_cloudfront_distribution.static-website.id}"
