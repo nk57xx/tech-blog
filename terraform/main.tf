@@ -194,7 +194,7 @@ data "aws_iam_role" "github_actions" {
   name = "GitHubActions-tech-blog"
 }
 
-# Update existing Policy for GitHubActions-tech-blog Role
+# Update existing Policy for GitHubActions-tech-blog Role and Policy
 resource "aws_iam_role_policy" "github_actions" {
   name = "GitHubActions-tech-blog"
   role = data.aws_iam_role.github_actions.name
